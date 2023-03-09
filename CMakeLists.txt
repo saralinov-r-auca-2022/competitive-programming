@@ -10,7 +10,7 @@ set(LETTERS "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N")
 list(APPEND LETTERS "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z")
 
 set(STRUCTURE "F D H E D F G E")
-list(APPEND STRUCTURE "D J E C")
+list(APPEND STRUCTURE "D J E C G")
 
 list(LENGTH LETTERS letters_len)
 list(LENGTH STRUCTURE semester_quantity)
@@ -38,10 +38,25 @@ foreach (semester_number RANGE ${semester_quantity})
                 endif ()
                 unset(file_content)
             else ()
-                file(WRITE ${FILE_PATH}/README.md "")
+                configure_file(
+                        ${CMAKE_CURRENT_SOURCE_DIR}/templates/base.cpp
+                        ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/solution.cpp COPYONLY
+                )
             endif ()
-            if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/README.md)
-                file(WRITE ${FILE_PATH}/README.md "")
+            set(is_readme, TRUE)
+            if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/README.md)
+                file(READ ${FILE_PATH}/README.md file_content)
+                if ("${file_content}" STREQUAL "")
+                    set(is_readme, FALSE)
+                endif()
+            else()
+                set(is_readme, FALSE)
+            endif()
+            if ("${is_readme}" STREQUAL FALSE)
+                configure_file(
+                        ${CMAKE_CURRENT_SOURCE_DIR}/templates/README.md
+                        ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/README.md COPYONLY
+                )
             endif ()
             if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/input.txt)
                 file(WRITE ${FILE_PATH}/input.txt "")
