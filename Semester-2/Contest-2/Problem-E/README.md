@@ -22,10 +22,6 @@ For each test case you must print the message: ‘Peter should buy books whose p
 j.’, where i and j are the prices of the books whose sum is equal do M and i ≤ j. You can consider that
 is always possible to find a solution, if there are multiple solutions print the solution that minimizes
 the difference between the prices i and j. After each test case you must print a blank line.
-Sample Input
-
-Sample Output
-
 
 ## Sample
 
