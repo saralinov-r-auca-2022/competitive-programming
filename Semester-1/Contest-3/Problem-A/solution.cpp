@@ -14,7 +14,7 @@ vector<int> prefixSums(vector<int> a) {
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(nullptr);
     int t;
     cin >> t;
     vector<int> a(t);
