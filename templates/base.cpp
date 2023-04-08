@@ -6,6 +6,8 @@ using namespace std;
 #define INPUT_FILE "no"
 #endif
 
+#define int long long
+
 void solve() {
 
 }
