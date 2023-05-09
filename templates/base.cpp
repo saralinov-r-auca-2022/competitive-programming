@@ -12,7 +12,7 @@ void solve() {
 
 }
 
-int main() {
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     string input_file = INPUT_FILE;
