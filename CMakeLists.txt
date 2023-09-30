@@ -10,7 +10,7 @@ set(LETTERS "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N")
 list(APPEND LETTERS "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z")
 
 set(STRUCTURE "F D H E D F G E")
-list(APPEND STRUCTURE "D J E C G")
+list(APPEND STRUCTURE "D J E C G F K")
 
 list(LENGTH LETTERS letters_len)
 list(LENGTH STRUCTURE semester_quantity)
