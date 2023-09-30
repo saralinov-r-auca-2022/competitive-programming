@@ -2,7 +2,6 @@
 > Time limit: X ms \
 Memory Limit: X kB
 
-
 ## Входные данные
 
 
