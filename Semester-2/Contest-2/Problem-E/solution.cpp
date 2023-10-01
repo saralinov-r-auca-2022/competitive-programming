@@ -6,6 +6,8 @@ using namespace std;
 #define INPUT_FILE "no"
 #endif
 
+#define int long long
+
 void solve(int n) {
     vector<int> prices(n);
     for (int i = 0; i < n; i++) {
@@ -37,7 +39,7 @@ void solve(int n) {
     cout << "\n";
 }
 
-int main() {
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     string input_file = INPUT_FILE;
@@ -47,5 +49,6 @@ int main() {
     while (cin >> n) {
         solve(n);
     }
+
     return 0;
 }
