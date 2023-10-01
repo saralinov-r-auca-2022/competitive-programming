@@ -6,11 +6,38 @@ using namespace std;
 #define INPUT_FILE "no"
 #endif
 
-void solve() {
+#define int long long
 
+void solve() {
+    int n;
+    cin >> n;
+    int m;
+    cin >> m;
+    vector<int> arr(n);
+
+    for (int &i: arr) {
+        cin >> i;
+    }
+
+    sort(arr.begin(), arr.end());
+
+    int l = 0;
+    int r = n - 1;
+    int mx = -1;
+
+    while (l < r) {
+        if (arr[l] + arr[r] <= m) {
+            mx = max(mx, arr[l] + arr[r]);
+            l++;
+        } else {
+            r--;
+        }
+    }
+
+    cout << mx << "\n";
 }
 
-int main() {
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     string input_file = INPUT_FILE;
