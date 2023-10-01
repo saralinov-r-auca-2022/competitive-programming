@@ -6,6 +6,7 @@ using namespace std;
 #define INPUT_FILE "no"
 #endif
 
+#define int long long
 
 vector<int> make_sequence(int n) {
     vector<int> sequence(n);
@@ -36,14 +37,14 @@ void solve() {
             q++;
         }
     }
-
 }
 
-int main() {
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     string input_file = INPUT_FILE;
     if (input_file != "no") freopen(INPUT_FILE, "r", stdin);
+
     solve();
     return 0;
 }
