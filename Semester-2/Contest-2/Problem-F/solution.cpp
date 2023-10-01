@@ -6,8 +6,11 @@ using namespace std;
 #define INPUT_FILE "no"
 #endif
 
+#define int long long
+
 void solve() {
-    int n; cin >> n;
+    int n;
+    cin >> n;
     vector<int> sequence(n);
 
     for (int i = 0; i < n; i++) {
@@ -35,14 +38,15 @@ void solve() {
     cout << max_vertex << "\n";
 }
 
-int main() {
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     string input_file = INPUT_FILE;
     if (input_file != "no") freopen(INPUT_FILE, "r", stdin);
 
-    int t; cin >> t;
-    while(t--) {
+    int t;
+    cin >> t;
+    while (t--) {
         solve();
     }
     return 0;
