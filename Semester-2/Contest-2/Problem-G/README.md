@@ -1,24 +1,34 @@
-# G - Hotels Along the Croatian Coast
+# Отели на хорватском побережье
 
-> Time limit1000 ms\
-> Mem limit131072 kB
+> Time limit: 1000 ms \
+> Memory Limit: 131072 kB
 
-There are n hotels along the beautiful Adriatic coast. Each hotel has its value in Euros.
+Есть n отелей на красивом побережье Адриатического моря.
+Каждый отель имеет свою стоимость в евро. Питер выиграл
+m евро в лотерее. Теперь он хочет купить последовательность
+последовательных отелей так, чтобы сумма стоимости этих последовательных
+отелей была как можно больше, но не превышала m.
 
-Peter has won m Euros on the lottery. Now he wants to buy a sequence of consecutive hotels, such that the sum of the
-values of these consecutive hotels is as great as possible – but not greater than m.
+Вам предстоит вычислить максимально возможную общую стоимость.
 
-You are to calculate this greatest possible total value.
+## Входные данные
 
-## Input
-In the first line there are integers n and m (1 ≤ n ≤ 300 000, 1 ≤ m < 231). In the next line there are n positive
-integers less than 106, representing the hotel values in the order they lie along the coast.
+Первая строка: n и m (1 ≤ n ≤ 3⋅10^5, 1 ≤ m < 2^31)
+Вторая строка: n положительных чисел меньше 10^6,
+представляющий стоимость отелей в том порядке,
+в котором они расположены вдоль побережья.
 
-## Output
-Print the required number (it will be greater than 0 in all the test data).
+## Выходные данные
 
-## Example
+Максимально возможная общая стоимость (во всех тестах больше 0)
 
-| Input              | Output |
-|:-------------------|:------:|
-| 5 12<br/>2 1 3 4 5 |   12   |
+## Пример
+
+| Входные данные | :::      |
+|:---------------|:---------|
+| 5 12           | -------- |
+| 2 1 3 4 5      |          |
+
+| Выходные данные | :::    |
+|-----------------|:-------|
+| 12              | ------ |
