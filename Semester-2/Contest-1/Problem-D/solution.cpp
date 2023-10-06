@@ -36,25 +36,25 @@ vector<int> sieve(int n) {
     return sieve_arr;
 }
 
-void solve(vector<map<int, int>> &divisors) {
+int inverse(int a, int m) {
+    return a <= 1 ? a : m - (int) (m / a) * inverse(m % a, m) % m;
+}
+
+int mod_divide(int a, int b, int m) {
+    a = a % m;
+    int inv = inverse(b, m);
+    if (inv == -1) {
+        return -1;
+    } else {
+        return (inv * a) % m;
+    }
+}
+
+void solve(vector<int> &number_of_divisors) {
     int n;
     cin >> n;
-    int result = 1;
 
-    vector<int> powers(MAX_N, 0);
-
-    for (int i = 2; i <= n; i++) {
-        for (auto e: divisors[i]) {
-            powers[e.first] += e.second;
-        }
-    }
-
-    for (int i = 2; i < powers.size(); i++) {
-        result *= (powers[i] + 1) % MODULO;
-        result %= MODULO;
-    }
-
-    cout << result << "\n";
+    cout << number_of_divisors[n] << "\n";
 }
 
 signed main() {
@@ -64,13 +64,13 @@ signed main() {
     if (input_file != "no") freopen(INPUT_FILE, "r", stdin);
 
     vector<map<int, int>> divisors(MAX_N + 1);
-
+    vector<int> number_of_divisors(MAX_N + 1);
     vector<int> sieve_arr = sieve((int) sqrt(MAX_N));
 
 
     for (int i = 2; i <= MAX_N; i++) {
         bool is_prime = true;
-        for (int j : sieve_arr) {
+        for (int j: sieve_arr) {
             if (i % j == 0) {
                 divisors[i] = divisors[i / j];
                 divisors[i][j]++;
@@ -83,11 +83,35 @@ signed main() {
         }
     }
 
+    map<int, int> powers;
+
+    int result = 1;
+    number_of_divisors[0] = 1;
+    number_of_divisors[1] = 1;
+    number_of_divisors[2] = 2;
+
+    for (int i = 2; i <= MAX_N; i++) {
+        for (auto e: divisors[i]) {
+            if (powers[e.first]) {
+                result = mod_divide(result, powers[e.first] + 1, MODULO);
+                powers[e.first] += e.second;
+                result *= (powers[e.first] + 1) % MODULO;
+                result %= MODULO;
+            } else {
+                powers[e.first] = e.second;
+                result *= (e.second + 1) % MODULO;
+                result %= MODULO;
+            }
+        }
+        number_of_divisors[i] = result;
+    }
+
     int t;
     cin >> t;
     while (t--) {
-        solve(divisors);
+        solve(number_of_divisors);
     }
 
     return 0;
 }
+
