@@ -8,7 +8,8 @@ using namespace std;
 
 #define int long long
 
-void solve(int n) {
+void solve() {
+    int n; cin >> n;
     vector<int> prices(n);
     for (int i = 0; i < n; i++) {
         cin >> prices[i];
@@ -45,9 +46,8 @@ signed main() {
     string input_file = INPUT_FILE;
     if (input_file != "no") freopen(INPUT_FILE, "r", stdin);
 
-    int n;
-    while (cin >> n) {
-        solve(n);
+    while (!cin.eof()) {
+        solve();
     }
 
     return 0;
