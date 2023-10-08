@@ -32,14 +32,14 @@ foreach (semester_number RANGE ${semester_quantity})
                 file(READ ${FILE_PATH}/solution.cpp file_content)
                 if ("${file_content}" STREQUAL "")
                     configure_file(
-                            ${CMAKE_CURRENT_SOURCE_DIR}/templates/base.cpp
+                            ${CMAKE_CURRENT_SOURCE_DIR}/templates/template.cpp
                             ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/solution.cpp COPYONLY
                     )
                 endif ()
                 unset(file_content)
             else ()
                 configure_file(
-                        ${CMAKE_CURRENT_SOURCE_DIR}/templates/base.cpp
+                        ${CMAKE_CURRENT_SOURCE_DIR}/templates/template.cpp
                         ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_PATH}/solution.cpp COPYONLY
                 )
             endif ()
